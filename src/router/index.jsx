@@ -1,20 +1,19 @@
 import React from "react";
-import { Routes,Route,BrowserRouter as Router} from "react-router-dom"; 
-import Home from "../pages/Home";
-import LifeService from "../pages/LifeService";
-import Shop from "../pages/Shop";
-import User from "../pages/User"
+import { useRoutes } from "react-router-dom";
+import FooterNav from "../components/FooterNav";
+import routes from "./routers"
+
 const AppRouter = ()=>{
 
+    const elements = useRoutes(routes)
+
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home/>}></Route>
-                <Route path="lifeservice" element={<LifeService/>}></Route>
-                <Route path="shop" element={<Shop/>}></Route>
-                <Route path="user" element={<User/>}></Route>
-            </Routes>
-        </Router>
+        <div>
+            { elements }
+            <FooterNav/>
+        </div>
         )
 }
+
 export default AppRouter
+
