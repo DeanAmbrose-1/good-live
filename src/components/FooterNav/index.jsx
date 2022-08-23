@@ -12,25 +12,25 @@ const FooterNav = ()=>{
                 <li>
                     <NavLink  to="/">
                         <i className="iconfont icon-home"></i>
-                        首页
+                        <span>首页</span>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink  to="/lifeservice">
                         <i className="iconfont icon-trophy"></i>
-                        生活服务
+                        <span>生活服务</span>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink  to="/shop">
                         <i className="iconfont icon-shop"></i>
-                        商城
+                        <span>商城</span>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink  to="/user">
                         <i className="iconfont icon-team"></i>
-                        我的
+                        <span>我的</span>
                     </NavLink>
                 </li>
             </ul>
