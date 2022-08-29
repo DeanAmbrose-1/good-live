@@ -1,5 +1,4 @@
-import axios from "../utils/request"
-
+import axios from "../untils/request"
 /**
  * 路径地址
  */
