@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import api from "../../../api"
+import api from "../../../../api"
 import HomeHotView from "../HomeHotView"
 
 const HomeHotList = () =>{
@@ -25,7 +25,7 @@ const HomeHotList = () =>{
     },[])
 
     return(
-        <div>
+        <div style={{height:"40rem"}}>
             {
                 Hot1List.length > 0 ?
                 <HomeHotView data = { Hot1List } title = {'热门商品'}/> :
