@@ -1,13 +1,17 @@
 import React from "react";
 import "./style.less"
 
-const PubHeader = ()=>{
+const PubHeader = (props)=>{
+
+    const {title} = props
+
     return (
         <div id="common-header">
             <span className="back-icon">
-                <i className="icon-chevron-left"></i>
+                <i className="icon-chevron-left"
+                 onClick={()=>{window.history.back()}}></i>
             </span>
-            <h1>城市选择</h1>
+            <h1>{title}</h1>
         </div>
     )
 }
