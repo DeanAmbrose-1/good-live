@@ -1,9 +1,8 @@
 import React from "react";
 import "./style.less"
 import api from "../../../api"
-import { useEffect } from "react";
-import { useState } from "react";
-import { useCallback } from "react";
+import { useEffect , useState , useCallback} from "react";
+import { IndexBar, List } from "antd-mobile";
 
 const CityList = ()=>{
 
@@ -31,7 +30,40 @@ const CityList = ()=>{
             allget_city()    
         },[allget_city]
     )
-            console.log(cityinof)
+
+    function creatcitylist() {
+        
+        const { citylist } = cityinof
+        return (
+            <IndexBar>
+                {
+                    Object.keys(citylist).map(
+                        (letter,index) => {
+                            const cl = citylist[letter]
+                            return (
+                                <IndexBar.Panel
+                                index = { letter }
+                                title = { letter }
+                                key = { index }
+                                >
+                                <List>
+                                {
+                                    cl.map(
+                                        (cname,index) => (
+                                            <List.Item key={index}> {cname} </List.Item>
+                                        )
+                                    )
+                                }
+                                </List> 
+                                </IndexBar.Panel>                   
+                            )
+                        }
+                    )
+                }
+            </IndexBar>
+        )
+    }    
+
 
     return (
         <div className="city-list-container">
@@ -39,13 +71,16 @@ const CityList = ()=>{
            <ul className="clear-fix">
             {
                 cityinof.hotcity.length >0 ? cityinof.hotcity.map(
-                    (cityname,index) => {
-                        
+                    (cityname,index) => {                       
                     return (<li key={index}><span>{cityname}</span></li>)     
                 }) : <span>暂无数据</span>
             }           
            </ul>
-          
+           <div className="cl">
+            {
+                creatcitylist()
+            }
+           </div>
         </div>
     )
 }
