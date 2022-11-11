@@ -70,6 +70,7 @@ instance.interceptors.response.use(
     error => {
         const { response } = error;
         errorHandle(response.status,response.info);
+        return Promise.reject(error)
     }
 )
 
