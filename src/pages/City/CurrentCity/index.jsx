@@ -26,13 +26,13 @@ const CurrentCity = ()=>{
 
     function relocate(){
         console.log("重新定位")
-        setlocalcity(()=>(<SpinLoading color='primary' style={{display:"inline"}}/>))
+        setlocalcity(()=>(<SpinLoading color='primary' style={{ '--size': '20px' }}/>))
         fetchcity()
     }
 
     return (
         <div className="current-city">
-            <span>当前:&nbsp;&nbsp;{localcity}</span>
+            <span style={{display:"inline-flex"}}>当前:&nbsp;&nbsp;{localcity}</span>
             <span className="float-right" onClick={relocate}>重新定位 </span>
             <EnvironmentOutline fontSize={20} className="float-right"/>
         </div>
