@@ -9,7 +9,12 @@ const base = {
     citylist:"/api/city/citylist",
     hotcity:"/api/city/hotcity"
 }
-
+/**
+ * api地址
+ */
+const freeapi = {
+    localpostion :"/api1/cityjson"
+}
 
 /**
  * 请求方法
@@ -39,6 +44,13 @@ const api = {
 
     gethotcitylist(){
         return axios.get(base.baseUrl + base.hotcity)
+    },
+
+    /**
+     * 获取当前城市定位
+     */
+    getlocalpostion(){
+        return axios.get(freeapi.localpostion)
     }
 }
 
