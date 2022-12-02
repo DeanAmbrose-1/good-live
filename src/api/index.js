@@ -12,8 +12,9 @@ const base = {
 /**
  * api地址
  */
-const freeapi = {
-    localpostion :"/api1/cityjson"
+const baidumapapi = {
+    localpostion :"/api1/location/ip?ak=",
+    ak : "W4NCpvrGcaRMnGzRE8q59oMdNj2hS11a"
 }
 
 /**
@@ -50,7 +51,7 @@ const api = {
      * 获取当前城市定位
      */
     getlocalpostion(){
-        return axios.get(freeapi.localpostion)
+        return axios.get(baidumapapi.localpostion + baidumapapi.ak)
     }
 }
 

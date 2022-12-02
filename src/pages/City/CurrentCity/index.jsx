@@ -7,11 +7,18 @@ import api from "../../../api"
 
 const CurrentCity = ()=>{
 
-    const [ localcity, setlocalcity] = useState("定位中")
+    const [ localcity, setlocalcity] = useState(<SpinLoading color='primary' style={{ '--size': '20px' }}/>)
     const fetchcity = async ()=>{
         try {
-            const {data} = await api.getlocalpostion()
-            setlocalcity(()=>(data.match(/省(.*)市"}/)[1]))
+            const {data:{address}} = await api.getlocalpostion()
+            setlocalcity(()=>{
+                try{
+                    return address.match(/省\|(.*)市/)[1]  
+                } catch(err){
+                    return "定位失败"
+                }
+                
+            })
         }catch(err){
             console.log(err)
             setlocalcity(()=>("定位失败"))
