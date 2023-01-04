@@ -1,4 +1,5 @@
 import axios from "../untils/request"
+import axios_baidu from "../untils/request_baidu"
 /**
  * 路径地址
  */
@@ -13,7 +14,7 @@ const base = {
  * api地址
  */
 const baidumapapi = {
-    localpostion :"/api1/location/ip?ak=",
+    localpostionbaseurl :"/api1/location/ip?ak=",
     ak : "W4NCpvrGcaRMnGzRE8q59oMdNj2hS11a"
 }
 
@@ -51,7 +52,7 @@ const api = {
      * 获取当前城市定位
      */
     getlocalpostion(){
-        return axios.get(baidumapapi.localpostion + baidumapapi.ak)
+        return axios_baidu.get(baidumapapi.localpostionbaseurl + baidumapapi.ak)
     }
 }
 
